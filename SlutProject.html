@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsDom</title>
+    <link rel="stylesheet" href="sjuprojectcss.css">
+</head>
+<body>
+
+    <div id = "Header1">
+
+        <div id="Headerinnuti">
+
+            <h2 id="Message"></h2>
+
+            <h5 id="Time"></h5>
+
+            <img id="katt" src="katt1.JPG" alt="Katt Img" height="100px" width="100px">
+
+
+        </div>
+
+
+    </div>
+    <div id ="Knappar">
+
+        <div id="Rad1">
+            <button onclick="Background_bytte()">Change Bg</button>
+            <button onclick="changeImageSrc()">Change Picture</button>
+            <button onclick="HeaderSkapa()">Header</button>
+        </div>
+
+        <div id ="Rad2">
+            <button id="AddMessage">Good Vibes</button>
+            <button onclick="Image_hide()">Hide Picture</button>
+            <button onclick="Headertabort()">Remove Header</button>
+        </div>
+
+        <div id="Rad3">
+            <button id = "timebutton">Time</button>
+            <button onclick="Image_visa()">Show Picture</button>
+            <button onclick="Headervisa()">Show Header</button>
+        </div>
+
+    </div>
+    
+
+    <script>
+
+
+    function Background_bytte()
+        {
+            document.body.style.backgroundColor = "green";
+        } 
+
+//Clocka funktion
+document.getElementById("timebutton").addEventListener("click", displayDate);
+
+function displayDate() {
+  document.getElementById("Time").innerHTML = Date();
+    }
+// Change BG 
+    function changeImageSrc() {
+        var image = document.getElementById("katt");
+        image.src = "katt2.JPG"; 
+    }
+
+// Good Vibes message
+var button = document.getElementById("AddMessage");
+var heading = document.getElementById("Message");
+
+button.addEventListener("click", function() {
+         heading.innerHTML = "Be the best version of you!";
+        });
+function Image_hide()
+        {
+            document.getElementById("katt").style.visibility = "hidden";   
+        }
+
+function Image_visa()
+        {
+            document.getElementById("katt").style.visibility = "visible"; 
+        }
+
+function HeaderSkapa()
+    {
+        var Container = document.getElementById("Header1");
+        var Content = document.getElementById("Headerinnuti");
+
+        document.getElementById("katt").style.border = "thick solid black";
+
+        Container.style.backgroundColor = "blue";
+
+        Content.style.textAlign= "center";
+    }
+function Headertabort()
+        {
+            document.getElementById("Header1").style.visibility = "hidden";
+            document.getElementById("katt").style.visibility = "hidden";
+        }
+
+function Headervisa()
+        {
+            document.getElementById("Header1").style.visibility = "visible";
+            document.getElementById("katt").style.visibility = "visible";
+        }
+    </script>
+</body>
+</html>
